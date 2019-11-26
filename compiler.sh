@@ -23,6 +23,12 @@ function load() {
   atom app.cpp
 }
 
+function run() {
+	read -p "Enter name of project you would like to run: " name
+	cd $name 
+	sudo bash compile.sh
+}
+
 echo "   _____       _           _  "
 echo "  / ____|     | |         | |    "
 echo " | |     _ __ | |___ _ __ | |___ "
@@ -34,6 +40,7 @@ echo "        |_|         |_|          "
 echo "Select below which option you would like to use..."
 echo "1: Make new project"
 echo "2. Open project"
+echo "3. Run project"
 read -p ">>" option
 if [ $option == 1 ]
 then
@@ -43,4 +50,9 @@ fi
 if [ $option == 2 ]
 then
 load
+fi
+
+if [ $option == 3 ]
+then 
+run 
 fi
