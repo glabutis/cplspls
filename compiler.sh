@@ -2,8 +2,8 @@
 cd /etc/cplscpls/projects
 function new() {
 read -p "Enter the project name below: " name
-mkdir $name
-cd $name
+mkdir ".$name"
+cd ".$name"
 touch app.cpp
 echo "#include <iostream>" >> app.cpp
 echo "using namespace std;" >> app.cpp
@@ -19,13 +19,13 @@ exit
 
 function load() {
   read -p "Enter the name of the project you want to load: " name
-  cd $name
+  cd ".$name"
   atom app.cpp
 }
 
 function run() {
 	read -p "Enter name of project you would like to run: " name
-	cd $name 
+	cd ".$name" 
 	sudo bash compile.sh
 }
 
