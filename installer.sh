@@ -11,4 +11,5 @@ echo "Welcome the the cplspls installer!"
 mkdir /etc/cplspls
 mkdir /etc/cplspls/projects
 mv installer.sh .installer.sh
+sudo apt install g++
 echo "Installed! Thanks for using cplspls"
