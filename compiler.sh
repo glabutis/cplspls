@@ -1,5 +1,10 @@
 #!/bin/bash
-cd /etc/cplscpls/projects
+path=".etc/textedit.txt"
+while IFS= read -r line
+do 
+liney = "$line"
+done < "$input"
+cd .projects
 function new() {
 read -p "Enter the project name below: " name
 mkdir ".$name"
@@ -20,7 +25,7 @@ exit
 function load() {
   read -p "Enter the name of the project you want to load: " name
   cd ".$name"
-  atom app.cpp
+  vim app.cpp
 }
 
 function run() {
@@ -29,6 +34,14 @@ function run() {
 	sudo bash compile.sh
 }
 
+function show() {
+	echo "Here are current projects listed in the directory..."
+	echo $(ls -a | grep .)
+        echo "....." 
+	read -p "Press enter to continue" 
+	startScreen	
+}
+function startScreen() {
 echo "   _____       _           _  "
 echo "  / ____|     | |         | |    "
 echo " | |     _ __ | |___ _ __ | |___ "
@@ -41,6 +54,7 @@ echo "Select below which option you would like to use..."
 echo "1: Make new project"
 echo "2. Open project"
 echo "3. Run project"
+echo "4. Show projects"
 read -p ">>" option
 if [ $option == 1 ]
 then
@@ -56,3 +70,11 @@ if [ $option == 3 ]
 then 
 run 
 fi
+
+if [ $option == 4 ]
+then 
+show
+fi
+}
+
+startScreen
