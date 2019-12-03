@@ -8,12 +8,10 @@ echo "  \_____| .__/|_|___/ .__/|_|___/"
 echo "        | |         | |          "
 echo "        |_|         |_|          "
 echo "Welcome the the cplspls installer!"
-mkdir /etc/cplspls
-mkdir /etc/cplspls/projects
-mv installer.sh .installer.sh
 sudo apt install g++
 mkdir .etc
 touch .etc/textedit.txt
+mkdir .projects
 sudo echo "alias c = sudo bash /home/cplspls/compiler.sh" >> ../bash.rc
 echo "Installed! Thanks for using cplspls"
 

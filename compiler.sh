@@ -1,5 +1,5 @@
 #!/bin/bash
-cd .projects
+cd cplspls/.projects
 green = '\033[0;32m'
 nc = '\033[0m'
 function new() {
@@ -16,19 +16,24 @@ echo "}" >> app.cpp
 touch compile.sh
 echo "g++ app.cpp" >> compile.sh
 echo "./a.out" >> compile.sh
-exit
+read -p "Press enter to continue"
+startScreen
 }
 
 function load() {
   read -p "Enter the name of the project you want to load: " name
   cd ".$name"
   vim app.cpp
+  read -p "Press enter to continue"
+  startScreen
 }
 
 function run() {
 	read -p "Enter name of project you would like to run: " name
 	cd ".$name" 
 	sudo bash compile.sh
+	read -p "Press enter to continue"
+	startScreen
 }
 
 function show() {
@@ -89,6 +94,5 @@ startScreen
 fi
 
 }
-
 
 startScreen
