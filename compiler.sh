@@ -17,6 +17,7 @@ touch compile.sh
 echo "g++ app.cpp" >> compile.sh
 echo "./a.out" >> compile.sh
 read -p "Press enter to continue"
+cd ..
 startScreen
 }
 
@@ -25,6 +26,7 @@ function load() {
   cd ".$name"
   vim app.cpp
   read -p "Press enter to continue"
+  cd ..
   startScreen
 }
 
@@ -32,11 +34,13 @@ function run() {
 	read -p "Enter name of project you would like to run: " name
 	cd ".$name" 
 	sudo bash compile.sh
-	read -p "Press enter to continue"
+	read -p "Press enter to continue"	
+	cd ..
 	startScreen
 }
 
 function show() {
+	cd .projects
 	echo "Here are current projects listed in the directory..."
 	echo $(ls -a | grep .)
         echo "....." 
@@ -54,6 +58,7 @@ echo -e "  \_____| .__/|_|___/ .__/|_|___/"
 echo -e "        | |         | |          "
 echo -e "        |_|         |_|         \e[0m "
 echo -e "Select below which option you would like to use..."
+echo -e "0. \e[0;32mExit cplspls \e[0m"
 echo -e "1: \e[0;32mMake new project \e[0m"
 echo -e "2. \e[0;32mOpen project \e[0m"
 echo -e "3. \e[0;32mRun project \e[0m"
